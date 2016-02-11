@@ -1,7 +1,7 @@
 'use strict';
 
 const chiSqr = require('chi-squared-test'),
-    rand5 = require('../lib/rand5');
+    rand5    = require('../lib/rand5');
 
 describe('rand5', () => {
     it('should return an integer between 0 and 4 (inclusive)', () => {
