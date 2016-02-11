@@ -63,12 +63,22 @@ gulp.task('deps', () => {
         .pipe(david());
 });
 
+
 // Macro for watch tasks
 gulp.task('dev', done => {
     sequence(
         'lint',
         'cover',
         'test'
+    )(done);
+});
+
+
+// Macro for travis
+gulp.task('travis', done => {
+    sequence(
+        'dev',
+        'coveralls'
     )(done);
 });
 
