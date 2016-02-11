@@ -1,4 +1,4 @@
-Rand7 JS
+Rand7 JS [![Build Status](https://travis-ci.org/edj-boston/rand7-js.svg?branch=master)](https://travis-ci.org/edj-boston/rand7-js) [![Coverage Status](https://coveralls.io/repos/edj-boston/rand7-js/badge.svg?branch=master&service=github)](https://coveralls.io/github/edj-boston/rand7-js?branch=master) [![Dependency Status](https://david-dm.org/edj-boston/rand7-js.svg)](https://david-dm.org/edj-boston/rand7-js) [![devDependency Status](https://david-dm.org/edj-boston/rand7-js/dev-status.svg)](https://david-dm.org/edj-boston/rand7-js#info=devDependencies)
 ========
 
 Solution to the rand7 code test problem in JS.
