@@ -11,7 +11,7 @@ describe('rand5', () => {
     it('should produce Chi Squared probability above 0.05', () => {
         const expected = [ 1000, 1000, 1000, 1000, 1000 ];
 
-        let observed = [ 0, 0, 0, 0, 0 ];
+        const observed = [ 0, 0, 0, 0, 0 ];
         for (let i = 0; i < 5000; i++) {
             observed[rand5()]++;
         }
