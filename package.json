@@ -1,0 +1,25 @@
+{
+  "name": "rand7-js",
+  "version": "0.1.0",
+  "description": "Solution to the rand7 code test problem in JS",
+  "main": "lib/rand7.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edj-boston/rand7-js.git"
+  },
+  "keywords": [
+    "rand7",
+    "code",
+    "test",
+    "solution"
+  ],
+  "author": "Eric Johnson <edj.boston@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/edj-boston/rand7-js/issues"
+  },
+  "homepage": "https://github.com/edj-boston/rand7-js#readme"
+}
