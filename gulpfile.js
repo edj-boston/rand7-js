@@ -41,19 +41,21 @@ gulp.task('coveralls', () => {
 
 // Lint all JS files (including this one)
 gulp.task('lint', () => {
-    return gulp.src([
+    const globs = [
         'gulpfile.js',
         'lib/*.js',
         'test/*.js',
         '!node_modules/**'
-    ])
-    .pipe(eslint({
-        extends : 'eslint:recommended',
-        env     : { node : true, es6 : true, mocha : true },
-        rules
-    }))
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
+    ];
+
+    return gulp.src(globs)
+        .pipe(eslint({
+            extends       : 'eslint:recommended',
+            parserOptions : { ecmaVersion : 6 },
+            rules
+        }))
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError());
 });
 
 
