@@ -33,6 +33,6 @@
     "gulp-mocha": "3.0.1",
     "gulp-sequence": "^0.4.4",
     "gulp-util": "^3.0.7",
-    "should": "^8.2.2"
+    "should": "^11.2.1"
   }
 }
