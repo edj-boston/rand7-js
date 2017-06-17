@@ -85,7 +85,7 @@ gulp.task('travis', done => {
 });
 
 // Task for local development
-gulp.task('default', [ 'dev' ], () => {
+gulp.task('default', [ 'deps', 'dev' ], () => {
     const globs = [
         'lib/*',
         'test/*'
