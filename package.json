@@ -23,8 +23,8 @@
   },
   "homepage": "https://github.com/edj-boston/rand7-js#readme",
   "dependencies": {
+    "@edjboston/eslint-rules": "^2.2.0",
     "chi-squared-test": "^1.1.0",
-    "edj-eslint-rules": "^2.1.0",
     "gulp": "^3.9.1",
     "gulp-coveralls": "^0.1.4",
     "gulp-david": "^1.0.1",

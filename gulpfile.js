@@ -7,7 +7,7 @@ const coveralls = require('gulp-coveralls'),
     gutil       = require('gulp-util'),
     istanbul    = require('gulp-istanbul'),
     mocha       = require('gulp-mocha'),
-    rules       = require('edj-eslint-rules'),
+    rules       = require('@edjboston/eslint-rules'),
     sequence    = require('gulp-sequence');
 
 
