@@ -1,32 +1,26 @@
 'use strict';
 
-const coveralls = require('gulp-coveralls'),
-    david       = require('gulp-david'),
-    eslint      = require('gulp-eslint'),
-    gulp        = require('gulp'),
-    gutil       = require('gulp-util'),
-    istanbul    = require('gulp-istanbul'),
-    mocha       = require('gulp-mocha'),
-    rules       = require('@edjboston/eslint-rules'),
-    sequence    = require('gulp-sequence');
+const g   = require('gulp-load-plugins')(),
+    gulp  = require('gulp'),
+    rules = require('@edjboston/eslint-rules');
 
 
 // Instrument the code
 gulp.task('cover', () => {
     return gulp.src('lib/*.js')
-        .pipe(istanbul())
-        .pipe(istanbul.hookRequire());
+        .pipe(g.istanbul())
+        .pipe(g.istanbul.hookRequire());
 });
 
 
 // Run tests and product coverage
 gulp.task('test', () => {
     return gulp.src('test/*.js')
-        .pipe(mocha({
+        .pipe(g.mocha({
             require : [ 'should' ]
         }))
-        .pipe(istanbul.writeReports())
-        .pipe(istanbul.enforceThresholds({
+        .pipe(g.istanbul.writeReports())
+        .pipe(g.istanbul.enforceThresholds({
             thresholds : { global : 100 }
         }));
 });
@@ -35,7 +29,7 @@ gulp.task('test', () => {
 // Run tests and produce coverage
 gulp.task('coveralls', () => {
     return gulp.src('coverage/lcov.info')
-        .pipe(coveralls());
+        .pipe(g.coveralls());
 });
 
 
@@ -49,26 +43,26 @@ gulp.task('lint', () => {
     ];
 
     return gulp.src(globs)
-        .pipe(eslint({
+        .pipe(g.eslint({
             extends       : 'eslint:recommended',
             parserOptions : { ecmaVersion : 6 },
             rules
         }))
-        .pipe(eslint.format())
-        .pipe(eslint.failAfterError());
+        .pipe(g.eslint.format())
+        .pipe(g.eslint.failAfterError());
 });
 
 
 // Check deps with David service
 gulp.task('deps', () => {
     return gulp.src('package.json')
-        .pipe(david());
+        .pipe(g.david({ update : '=' }));
 });
 
 
 // Macro for watch tasks
 gulp.task('dev', done => {
-    sequence(
+    g.sequence(
         'lint',
         'cover',
         'test'
@@ -78,7 +72,7 @@ gulp.task('dev', done => {
 
 // Macro for travis
 gulp.task('travis', done => {
-    sequence(
+    g.sequence(
         'dev',
         'coveralls'
     )(done);
@@ -93,6 +87,6 @@ gulp.task('default', [ 'deps', 'dev' ], () => {
 
     gulp.watch(globs, [ 'dev' ])
         .on('change', e => {
-            gutil.log('File', e.type, e.path);
+            g.util.log('File', e.type, e.path);
         });
 });
